@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section Example</title>
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+      @font-face {
+        font-family: "Valky";
+        src: url("./ValkyRegular.ttf") format("truetype");
+      }
+
+      body {
+        background-color: #fffcf9;
+        font-optical-sizing: auto;
+        font-style: normal;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Valky", sans-serif;
+        font-weight: bold;
+        margin-bottom: 0px;
+      }
+
+      p {
+        font-family: "Outfit", sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.4);
+        margin-top: 5px;
+        line-height: 1.5;
+        margin-bottom: 0px;
+      }
+
+      /* UTILS CLASSES START */
+      .nvybe-primary-heading {
+        font-family: "Valky", sans-serif;
+        font-size: 40px;
+        margin-bottom: 0px;
+        color: #3a2d32;
+      }
+
+      .nvybe-secondary-heading {
+      }
+
+      .nvybe-primary-button {
+        background-color: #fdc983;
+        color: #3a2d32;
+        font-family: "Outfit", sans-serif;
+        border: none;
+        padding: 1rem 1.8rem;
+        font-size: 16px;
+        border-radius: 50px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        gap: 0.5rem;
+      }
+
+      .nvybe-primary-heading3 {
+        font-family: "Valky", sans-serif;
+        font-size: 38px;
+        margin: 0px;
+        color: #3a2d32;
+      }
+
+      /* UTILS CLASSES END */
+
+      .nvybe-section-container {
+        max-width: 1280px;
+        padding: 2rem;
+        margin: 0 auto;
+      }
+
+      .hero-section {
+        background-color: #fff3e3;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100vh;
+        padding: 0 2rem;
+        max-width: 100vw;
+      }
+      .hero-main-container {
+        width: 95%;
+        margin: 0 auto;
+        display: flex;
+      }
+      .hero-sub-para-con {
+        font-family: "Outfit";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 25px;
+        max-width: 600px;
+        color: rgba(0, 0, 0, 0.4);
+        border-left: 5px solid #fdc983;
+
+        padding-left: 16px;
+        margin-top: 50px;
+        position: relative;
+      }
+      .hero-title-con-sub {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-top: -20px;
+        position: relative;
+        z-index: 2;
+      }
+      .hero-con-left {
+        width: 60%;
+      }
+      .hero-con-right {
+        position: relative;
+        width: 40%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .hero-prod-showcase {
+        position: relative;
+        z-index: 1;
+        background-color: #fdc983;
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 16px;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 16px;
+        width: 85%;
+        height: 100%;
+        position: relative;
+      }
+      .hero-prod-showcase::before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: -20px;
+        width: 100%;
+        height: 100%;
+        border: 2px solid #6b665f;
+        border-radius: 50% 50% 0 0;
+        z-index: -1;
+        background-color: transparent;
+      }
+      .hero-prod-showcase img {
+        position: absolute;
+        top: -20%;
+      }
+      .hero-title-con h1 {
+        font-size: 100px;
+        font-weight: 500;
+        margin: 0px;
+        z-index: 2;
+      }
+      .hero-head-img-con {
+        margin-top: -20px;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        padding: 5px;
+        border: 3px solid #3a2d32;
+      }
+      .hero-head-img-con img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+      .herobadge {
+        padding: 7px 20px;
+        border: 3px solid #e29353;
+        color: #e29353;
+        width: fit-content;
+        border-radius: 50px;
+        font-family: "Outfit";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 17.9763px;
+        line-height: 23px;
+        text-align: center;
+        color: #e29353;
+        margin-bottom: 16px;
+        position: relative;
+        z-index: 2;
+      }
+      .nvybe-nvybe-gradient {
+        background-color: #f8e3c3; /* Base peach background */
+        height: 100vh;
+        margin: 0;
+        position: absolute;
+      }
+
+      /* Oval 1 (top left) */
+      .oval1 {
+        display: block !important;
+        position: absolute;
+        top: 16px;
+        left: -60px;
+        width: 160px; /* Make it wider for a more oval shape */
+        height: 90px; /* Make it slightly taller for an oval shape */
+        background: radial-gradient(
+          at center,
+          rgba(109, 113, 191, 0.7),
+          rgba(251, 217, 198, 0.9)
+        );
+        border-radius: 50%;
+        filter: blur(40px);
+      }
+
+      /* Oval 2 (center middle) */
+      .oval2 {
+        display: block !important;
+
+        position: absolute;
+        top: -10px;
+        right: 15%;
+        width: 120px; /* Widen it more */
+        height: 150px; /* Tall enough to keep an oval shape */
+        transform: rotate(-113.33deg);
+        background: radial-gradient(
+          at center,
+          #fdc983 0%,
+          #f4d0a1 100%
+        ); /* Darker peach tones */
+        border-radius: 50%;
+        filter: blur(40px);
+        z-index: 0;
+      }
+
+      /* Oval 3 (bottom right) */
+      .oval3 {
+        display: block !important;
+
+        position: absolute;
+        top: -80px;
+        left: 170px;
+        width: 140px; /* Wider to create oval effect */
+        height: 80px; /* Taller for oval effect */
+        background: radial-gradient(
+          at center,
+          rgba(109, 113, 191, 0.8),
+          rgba(251, 217, 198, 0.9)
+        ); /* Darker purple and peach */
+        border-radius: 50%;
+        filter: blur(40px);
+      }
+
+      .hero-btn-con {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        margin-left: -20px;
+      }
+
+      .hero-btn-con a {
+        font-family: "Outfit";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 30px;
+        border-bottom: 2px solid #3a2d32;
+        color: #000000;
+      }
+
+      .Shine-with-star {
+        position: absolute;
+        top: 19%;
+        left: 19%;
+        z-index: 1000;
+      }
+
+      .hero-page-sparkle {
+        position: absolute !important;
+        top: 12% !important;
+        right: -10%;
+      }
+
+      .organic-circle-img {
+        position: absolute;
+        top: -150%;
+        left: 90%;
+        z-index: 1000;
+      }
+
+      .arrow-con {
+        position: absolute;
+        left: -8%;
+        top: 27%;
+      }
+
+      .nvybe-our-story-section {
+        background-color: #fbeed9;
+      }
+      .nvybe-our-story-section-sub {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        background-color: #fbeed9;
+        padding-bottom: calc(2rem - 16px) !important;
+      }
+
+      .nvybe-our-story-image-container {
+        position: relative;
+        display: flex;
+        height: 370px;
+      }
+
+      .nvybe-our-story-product-image {
+        width: 300px;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+        height: 300px;
+        border-radius: 18px;
+      }
+
+      .nvybe-our-story-model-image {
+        width: 200px;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+        position: absolute;
+        bottom: 20px;
+        right: -50px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 18px;
+      }
+
+      .nvybe-our-story-text-container {
+        max-width: 500px;
+      }
+
+      .nvybe-our-story-heading {
+        font-size: 40px;
+        color: #2d2d2d;
+        margin-top: 0px;
+        position: relative;
+      }
+
+      .nvybe-our-story-heading .nvybe-our-story-sparkle {
+        color: #fcb900;
+      }
+
+      .nvybe-our-story-shop-now {
+        background-color: #fcb900;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .nvybe-our-story-shop-now .nvybe-our-story-icon {
+        font-size: 1.2rem;
+      }
+
+      .nvybe-our-story-shop-now:hover {
+        background-color: #e0a800;
+      }
+
+      .wrapper {
+        width: 100%;
+        max-width: 1536px;
+        margin-inline: auto;
+        position: relative;
+        height: 100px;
+        overflow: hidden;
+        background: #fdc983;
+      }
+
+      @keyframes scrollLeft {
+        to {
+          left: -300px;
+        }
+      }
+
+      .item {
+        text-transform: capitalize;
+
+        width: 360px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        height: 100px;
+        border-radius: 6px;
+        position: absolute;
+        padding-top: 5px;
+        left: max(calc(350px * 8), 100%);
+        animation-name: scrollLeft;
+        animation-duration: 30s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+      .item h3 {
+        font-family: "Valky";
+        font-style: normal;
+        font-size: 20px;
+        line-height: 32px;
+        color: #3a2d32;
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+
+      .item1 {
+        animation-delay: calc(30s / 8 * (8 - 1) * -1);
+      }
+
+      .item2 {
+        animation-delay: calc(30s / 8 * (8 - 2) * -1);
+      }
+
+      .item3 {
+        animation-delay: calc(30s / 8 * (8 - 3) * -1);
+      }
+
+      .item4 {
+        animation-delay: calc(30s / 8 * (8 - 4) * -1);
+      }
+
+      .item5 {
+        animation-delay: calc(30s / 8 * (8 - 5) * -1);
+      }
+
+      .item6 {
+        animation-delay: calc(30s / 8 * (8 - 6) * -1);
+      }
+
+      .item7 {
+        animation-delay: calc(30s / 8 * (8 - 7) * -1);
+      }
+
+      .item8 {
+        animation-delay: calc(30s / 8 * (8 - 8) * -1);
+      }
+      /* ----Category Section --*/
+      .category-products {
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .category-products img {
+        border-radius: 12px;
+      }
+
+      .category-product-card {
+        text-align: center;
+      }
+
+      .category-heading {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+
+      .category-title {
+        color: #3a2d32;
+      }
+
+      .category-subtitle {
+        color: rgba(0, 0, 0, 0.4);
+      }
+
+      .category-product-price {
+        color: #3a2d32;
+        font-weight: bold;
+      }
+
+      .category-product-title {
+        color: rgba(0, 0, 0, 0.4);
+      }
+
+      /* --WHY CHOOSE US-- */
+
+      .benefits-container {
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .benefit-title {
+        text-align: center;
+        font-family: "Valky", sans-serif;
+        margin-bottom: 0px;
+        color: #3a2d32;
+      }
+
+      .benefit-description {
+        text-align: center;
+      }
+
+      .benefit-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 10px;
+      }
+
+      .benefit-icon img {
+        width: 30%;
+        height: auto;
+      }
+      .meet-glow-products {
+        display: flex;
+        margin-top: 160px;
+      }
+      .meet-glow-text {
+        font-family: "Outfit", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 160.2%;
+        color: rgba(0, 0, 0, 0.4);
+        margin: 20px 0px;
+        margin-bottom: 40px;
+      }
+      #rice-product {
+        background-color: #e9f0f1;
+        border-radius: 16px;
+      }
+      #berry-product {
+        background-color: #fff3e3;
+        border-radius: 16px;
+      }
+      #under-eye-product {
+        background-color: #eef4ed;
+        border-radius: 16px;
+      }
+      #berry-product .meet-glow-product-right {
+        background-color: #fdc983;
+      }
+      .meet-glow-product-left {
+        padding: 80px 42px;
+        width: 55%;
+      }
+      .meet-glow-product-right {
+        width: 45%;
+        position: relative;
+        z-index: 0;
+        background-color: #a7c7e7;
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+      }
+      #berry-product .meet-glow-product-right {
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: 16px;
+      }
+      #berry-product .meet-glow-product-right::before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: -20px;
+        width: 100%;
+        height: 100%;
+        border: 2px solid #6b665f;
+        border-radius: 0 50% 50% 0 / 50%;
+        z-index: 1;
+        background-color: transparent;
+      }
+      #under-eye-product .meet-glow-product-right {
+        background-color: #98c6a6;
+      }
+
+      .meet-glow-product-right::before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 100%;
+        height: 100%;
+        border: 2px solid #6b665f;
+        border-radius: 50% 0 0 50% / 50%;
+        z-index: 1;
+        background-color: transparent;
+      }
+      .product-right-image-container {
+        width: 80%;
+        height: 100%;
+        position: absolute;
+        top: -30%;
+        left: 15%;
+        display: flex;
+        justify-content: center;
+        z-index: 2;
+      }
+      .nvybe-meet-glow-product-image {
+        width: 120%;
+        height: 120%;
+        object-fit: contain;
+      }
+
+      #under-eye-product .nvybe-meet-glow-product-image {
+        width: 130%;
+        height: 130%;
+        object-fit: contain;
+      }
+
+      .customer-card {
+        background-color: #fff3e3;
+        padding: 30px;
+        width: 33%;
+        border-radius: 12px;
+        position: relative;
+      }
+
+      .profile {
+        border-radius: 50%;
+        background-color: rgba(128, 128, 128, 0.425);
+        width: 50px;
+        height: 50px;
+      }
+
+      .customer-review {
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.4);
+        margin-top: 20px;
+        font-family: "Outfit";
+        margin-bottom: 0;
+      }
+
+      .customer-profile {
+        margin-top: 35px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .customer-name {
+        margin: 0;
+        font-family: "Outfit";
+        color: #1f1402;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .customer-name-sub {
+        font-family: "Outfit";
+        color: #828282;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .customer-card::before {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: -15px;
+        width: 100%;
+        height: 100%;
+        border: 2px solid #6b665f;
+        border-radius: 12px;
+        z-index: -1;
+        background-color: transparent;
+      }
+
+      .footer-container {
+        display: flex;
+        background-color: #252320;
+        padding: 100px 40px 20px 40px;
+        gap: 50px;
+        justify-content: space-between;
+      }
+
+      .footer-logo-column {
+        width: 40%;
+      }
+      .footer-logo-column img {
+        width: 100%;
+      }
+
+      .footer-menu-column {
+        width: calc((100% - 40%) / 3);
+        font-size: 24px;
+        color: #eeeae1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .footer-menu-column ul {
+        list-style: none;
+        font-size: 24px;
+        color: #eeeae1;
+        font-family: "Outfit";
+        padding: 0px;
+      }
+
+      .footer-menu-column li {
+        margin: 10px 0px;
+      }
+
+      .founder-section-container {
+        background: linear-gradient(90.15deg, #fdc983 0.13%, #fff3e3 129.95%);
+        max-width: 100vw;
+        position: relative;
+        margin-top: 120px;
+        margin-bottom: 30px;
+      }
+      .founder-content {
+        width: 60%;
+        text-align: center;
+        margin: 0 auto;
+        padding: 60px 0px;
+      }
+      .founder-content p {
+        color: rgba(77, 73, 69, 0.9);
+        font-weight: 400;
+        font-size: 28px;
+      }
+      .quote-image {
+        position: absolute;
+        top: -23%;
+        right: 10%;
+      }
+      .founder-content strong {
+        font-weight: 500;
+        color: rgba(77, 73, 69, 0.7);
+      }
+      @media screen and (max-width: 768px) {
+        .mobile-hide {
+          display: none;
+        }
+        .sparkles {
+          display: none;
+        }
+        .hero-section {
+          height: auto;
+          padding-top: 60px;
+        }
+        .hero-title-con h1 {
+          font-size: 38px;
+          line-height: 65px;
+        }
+        .hero-prod-showcase {
+          width: 95%;
+          margin-bottom: 50px;
+        }
+        .hero-prod-showcase img {
+          position: relative;
+          top: 0;
+          height: 340px;
+          width: auto;
+        }
+        .hero-main-container {
+          flex-direction: column;
+          gap: 20px;
+        }
+        .hero-con-left {
+          width: 100%;
+        }
+        .hero-con-right {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+        .hero-page-sparkle {
+          display: none;
+        }
+        .hero-sub-para-con {
+          margin-top: 12px;
+          font-size: 14px;
+          border-left: 3px solid #fdc983;
+          padding-left: 12px;
+        }
+        .nvybe-primary-heading {
+          font-size: 28px;
+          margin-bottom: 10px;
+        }
+        .benefits-container {
+          flex-direction: column;
+          gap: 20px;
+        }
+        .nvybe-our-story-model-image {
+          right: -20px;
+        }
+        .category-products {
+          flex-direction: column;
+          gap: 20px;
+        }
+        .meet-glow-products {
+          flex-direction: column;
+          gap: 20px;
+        }
+        .meet-glow-product-right {
+          transform: rotate(90deg);
+          width: 80%;
+          margin: 0 auto;
+          margin-bottom: -30px;
+        }
+        .product-right-image-container {
+          position: relative;
+          transform: rotate(-90deg);
+        }
+        .product-right-image-container {
+          position: relative;
+        }
+        .nvybe-our-story-section-sub {
+          flex-direction: column;
+          gap: 20px;
+        }
+        .customer-card {
+          width: 85%;
+        }
+        .footer-container {
+          flex-direction: column;
+          gap: 20px;
+          padding: 40px 20px;
+        }
+
+        .footer-logo-column {
+          width: 100%;
+        }
+
+        .footer-menu-column {
+          width: 100%;
+        }
+      }
+      /* ---------------- */
+    </style>
+    <section
+      class="nvybe-section-container hero-section"
+      aria-label="Hero Section"
+    >
+      <div class="hero-main-container">
+        <div class="hero-con-left">
+          <div class="herobadge">
+            <div class="oval1"></div>
+            100 % Natural Products
+          </div>
+          <div class="hero-title-con">
+            <h1>
+              Shine
+              <img
+                class="Shine-with-star mobile-hide"
+                src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/star.svg?v=1733773066"
+                alt=""
+              />
+              With
+            </h1>
+            <div class="hero-title-con-sub">
+              <div class="hero-head-img-con mobile-hide">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/herogirl.png?v=1733772750"
+                  alt=""
+                />
+                <div class="arrow-con mobile-hide">
+                  <img
+                    class="arrow"
+                    src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/arrow.png?v=1733773304"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="oval2"></div>
+              <div class="organic-circle-img mobile-hide">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/organic1.png?v=1733772736"
+                  alt=""
+                />
+              </div>
+
+              <h1>Natural Beauty</h1>
+            </div>
+          </div>
+
+          <div class="hero-btn-con mobile-hide">
+            <div class="hero-head-img-con" style="visibility: hidden">
+              <img src="./assets/herogirl.png" alt="" />
+            </div>
+
+            <button class="nvybe-primary-button">
+              Shop Now<svg
+                width="19"
+                height="18"
+                viewBox="0 0 19 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.67578 6H17.6758L16.8408 15.181C16.7956 15.6779 16.5664 16.14 16.198 16.4766C15.8296 16.8131 15.3487 16.9998 14.8498 17H4.50178C4.00282 16.9998 3.52195 16.8131 3.15358 16.4766C2.78521 16.14 2.55594 15.6779 2.51078 15.181L1.67578 6Z"
+                  stroke="#3A2D32"
+                  stroke-width="1.5"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M5.67578 8V5C5.67578 3.93913 6.09721 2.92172 6.84735 2.17157C7.5975 1.42143 8.61492 1 9.67578 1C10.7366 1 11.7541 1.42143 12.5042 2.17157C13.2544 2.92172 13.6758 3.93913 13.6758 5V8"
+                  stroke="#3A2D32"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+
+            <a>
+              Learn More
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.89619 0.253956L13.6636 0.258394C14.2816 0.25926 14.7817 0.759368 14.7826 1.37736L14.7826 11.0676C14.7826 11.6847 14.2816 12.1856 13.6645 12.1857C13.0456 12.1857 12.5455 11.6856 12.5455 11.0667L12.5455 4.14297L2.2928 14.3974C1.85595 14.8343 1.14782 14.8334 0.710993 14.3965C0.275032 13.9606 0.274166 13.2524 0.710993 12.8156L11.0356 2.49103L3.8935 2.49458C3.27553 2.49372 2.77628 1.99447 2.7754 1.37648C2.77453 1.07918 2.8924 0.793163 3.10301 0.582549C3.31276 0.371064 3.5989 0.253069 3.89619 0.253956Z"
+                  fill="black"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <br />
+
+          <div class="hero-sub-para-con">
+            Cosmetics with 100% natural ingredients preprocessing by machine and
+            research by many cosmetics & dermatologists present in Korea
+            ingredients preprocessing by cosmetics.
+          </div>
+        </div>
+        <div class="hero-con-right">
+          <div class="oval3"></div>
+          <div class="hero-prod-showcase">
+            <img
+            src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/berry1.png?v=1733772730
+            alt="" />
+            <img
+              class="hero-page-sparkle"
+              src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/star.svg?v=1733773066"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HERO END -->
+    <div class="wrapper">
+      <div class="item item1">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24 12C17.3703 12 12 6.62552 12 0C12 6.62552 6.62552 12 0 12C6.62552 12 12 17.37 12 24C12 17.37 17.3703 12 24 12Z"
+            fill="#3A2D32"
+          />
+        </svg>
+
+        <h3>Naturally sourced ingredients</h3>
+      </div>
+      <div class="item item2">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24 12C17.3703 12 12 6.62552 12 0C12 6.62552 6.62552 12 0 12C6.62552 12 12 17.37 12 24C12 17.37 17.3703 12 24 12Z"
+            fill="#3A2D32"
+          />
+        </svg>
+
+        <h3>Clean & sustainable formulas</h3>
+      </div>
+      <div class="item item3">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24 12C17.3703 12 12 6.62552 12 0C12 6.62552 6.62552 12 0 12C6.62552 12 12 17.37 12 24C12 17.37 17.3703 12 24 12Z"
+            fill="#3A2D32"
+          />
+        </svg>
+
+        <h3>Skin friendly ingredients</h3>
+      </div>
+      <div class="item item4">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24 12C17.3703 12 12 6.62552 12 0C12 6.62552 6.62552 12 0 12C6.62552 12 12 17.37 12 24C12 17.37 17.3703 12 24 12Z"
+            fill="#3A2D32"
+          />
+        </svg>
+
+        <h3>Combination of east & west</h3>
+      </div>
+      <div class="item item5">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24 12C17.3703 12 12 6.62552 12 0C12 6.62552 6.62552 12 0 12C6.62552 12 12 17.37 12 24C12 17.37 17.3703 12 24 12Z"
+            fill="#3A2D32"
+          />
+        </svg>
+
+        <h3>Vegan & cruelty free</h3>
+      </div>
+      <div class="item item6">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24 12C17.3703 12 12 6.62552 12 0C12 6.62552 6.62552 12 0 12C6.62552 12 12 17.37 12 24C12 17.37 17.3703 12 24 12Z"
+            fill="#3A2D32"
+          />
+        </svg>
+
+        <h3>Naturally sourced ingredients</h3>
+      </div>
+      <div class="item item7">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24 12C17.3703 12 12 6.62552 12 0C12 6.62552 6.62552 12 0 12C6.62552 12 12 17.37 12 24C12 17.37 17.3703 12 24 12Z"
+            fill="#3A2D32"
+          />
+        </svg>
+
+        <h3>Clean & sustainable formulas</h3>
+      </div>
+      <div class="item item8">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24 12C17.3703 12 12 6.62552 12 0C12 6.62552 6.62552 12 0 12C6.62552 12 12 17.37 12 24C12 17.37 17.3703 12 24 12Z"
+            fill="#3A2D32"
+          />
+        </svg>
+
+        <h3>Skin friendly ingredients</h3>
+      </div>
+    </div>
+
+    <!-- CATEGORY SECTION START -->
+
+    <section class="nvybe-section-container" aria-label="Category Section">
+      <div class="category-heading">
+        <h1 class="category-title nvybe-primary-heading">
+          <span class="sparkles"
+            ><img
+              src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/star.svg?v=1733773066"
+              alt=""
+              style="margin-bottom: -25px; margin-right: 10px" /></span
+          >Explore Our Beauty Care Products<span
+            class="sparkles"
+            style="margin-top: 20px"
+            ><img
+              src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/star.svg?v=1733773066"
+              alt=""
+          /></span>
+        </h1>
+        <p class="category-subtitle">
+          Cosmetics with 100% natural ingredients by machine
+        </p>
+      </div>
+      <div class="category-products">
+        <div class="category-product-card">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/cat1.jpg?v=1733772778"
+            width="90%"
+            alt="Product 1"
+          />
+          <p class="category-product-title">Rice-Day! Toner</p>
+          <p class="category-product-price">Rs 499.00</p>
+        </div>
+        <div class="category-product-card">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/cat1.jpg?v=1733772778"
+            width="90%"
+            alt="Product 2"
+          />
+          <p class="category-product-title">Rice-Day! Toner</p>
+          <p class="category-product-price">Rs 499.00</p>
+        </div>
+        <div class="category-product-card">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/cat1.jpg?v=1733772778"
+            width="90%"
+            alt="Product 3"
+          />
+          <p class="category-product-title">Rice-Day! Toner</p>
+          <p class="category-product-price">Rs 499.00</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORY SECTION END -->
+
+    <!-- FOUNDER SECTION START -->
+
+    <section
+      class="nvybe-section-container founder-section-container"
+      aria-label="Example Section"
+    >
+      <img
+        src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/quote.svg?v=1733773460"
+        alt=""
+        class="quote-image"
+      />
+      <div class="founder-content">
+        <p>
+          Our mission is to provide high quality products that are not tested on
+          animals and are completely safe for the environment.
+        </p>
+        <br />
+        <p style="text-align: right"><strong>-Darshan, Founder</strong></p>
+      </div>
+    </section>
+
+    <!-- FOUNDER SECTION  END -->
+
+    <!-- WHY CHOOSE US START -->
+
+    <section
+      class="nvybe-section-container"
+      aria-label="Example Section"
+      style="margin-bottom: 48px"
+    >
+      <div class="category-heading">
+        <h1 class="category-title nvybe-primary-heading">
+          <span class="sparkles"
+            ><img
+              src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/star.svg?v=1733773066"
+              alt=""
+              style="margin-bottom: -30px; margin-right: 5px" /></span
+          >Why Choose Our Products<span
+            class="sparkles"
+            style="margin-top: 20px"
+            ><img
+              src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/star.svg?v=1733773066"
+              alt=""
+          /></span>
+        </h1>
+        <p class="category-subtitle">
+          Cosmetics with 100% natural ingredients by machine
+        </p>
+      </div>
+
+      <div class="benefits-container">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <img src="icon.svg" alt="Fast Delivery Icon" />
+          </div>
+          <h3 class="benefit-title">Innovative Formulation</h3>
+          <p class="benefit-description">
+            Cosmetics with 100% natural ingredients
+          </p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <img src="icon.svg" alt="Fast Delivery Icon" />
+          </div>
+          <h3 class="benefit-title">Cultural Fusion</h3>
+          <p class="benefit-description">
+            Cosmetics with 100% natural ingredients
+          </p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <img src="icon.svg" alt="Fast Delivery Icon" />
+          </div>
+          <h3 class="benefit-title">Vegan & Cruelty Free</h3>
+          <p class="benefit-description">
+            Cosmetics with 100% natural ingredients
+          </p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <img src="icon.svg" alt="Fast Delivery Icon" />
+          </div>
+          <h3 class="benefit-title">Superfood Ingredients</h3>
+          <p class="benefit-description">
+            Cosmetics with 100% natural ingredients
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR STORY START -->
+
+    <section class="nvybe-our-story-section">
+      <div class="nvybe-our-story-section-sub">
+        <div class="nvybe-our-story-image-container">
+          <img
+            src="https://placehold.co/150x100"
+            alt="Product Image"
+            class="nvybe-our-story-product-image"
+          />
+          <img
+            src="https://placehold.co/200x200"
+            alt="Model Image"
+            class="nvybe-our-story-model-image"
+          />
+        </div>
+        <div class="nvybe-our-story-text-container">
+          <h1 class="nvybe-our-story-heading nvybe-primary-heading">
+            Our Story
+            <span class="nvybe-our-story-sparkle" style="margin-left: -20px"
+              ><img
+                src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/star.svg?v=1733773066"
+                alt=""
+            /></span>
+          </h1>
+          <p class="nvybe-our-story-description">
+            Cosmetics with 100% natural ingredients preprocessing by machine and
+            research by many cosmetics & dermatologists present in Korea.
+          </p>
+          <button class="nvybe-primary-button">
+            Know More
+            <!-- <span class="nvybe-our-story-icon"></span> -->
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR STORY END -->
+
+    <!-- MEET THE GLOW START -->
+
+    <section
+      style="max-width: 1200px"
+      class="nvybe-section-container"
+      aria-label="meet-glow Section"
+    >
+      <div class="category-heading meet-glow-heading">
+        <h1 class="meet-glow-title nvybe-primary-heading">
+          <span class="sparkles"
+            ><img
+              src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/star.svg?v=1733773066"
+              alt=""
+              style="margin-bottom: -25px; margin-right: 10px" /></span
+          >Meet The Glow<span class="sparkles" style="margin-top: 20px"
+            ><img
+              src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/star.svg?v=1733773066"
+              alt=""
+          /></span>
+        </h1>
+        <p class="meet-glow-subtitle">
+          Cosmetics with 100% natural ingredients by machine
+        </p>
+      </div>
+
+      <!-- RICE PRODUCT -->
+      <div class="meet-glow-products" id="rice-product">
+        <div class="meet-glow-product-left">
+          <h3 class="meet-glow-title nvybe-primary-heading3">
+            Experience The Product
+          </h3>
+
+          <p class="meet-glow-text">
+            Cosmetics with 100% natural ingredients preprocessing by machine and
+            research by many cosmetics & dermatologists present in korea. by
+            many cosme.
+          </p>
+
+          <button class="nvybe-primary-button">
+            Shop Now<svg
+              width="19"
+              height="18"
+              viewBox="0 0 19 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.67578 6H17.6758L16.8408 15.181C16.7956 15.6779 16.5664 16.14 16.198 16.4766C15.8296 16.8131 15.3487 16.9998 14.8498 17H4.50178C4.00282 16.9998 3.52195 16.8131 3.15358 16.4766C2.78521 16.14 2.55594 15.6779 2.51078 15.181L1.67578 6Z"
+                stroke="#3A2D32"
+                stroke-width="1.5"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M5.67578 8V5C5.67578 3.93913 6.09721 2.92172 6.84735 2.17157C7.5975 1.42143 8.61492 1 9.67578 1C10.7366 1 11.7541 1.42143 12.5042 2.17157C13.2544 2.92172 13.6758 3.93913 13.6758 5V8"
+                stroke="#3A2D32"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="meet-glow-product-right">
+          <div class="product-right-image-container">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/rice1.png?v=1733772792"
+              alt="Product Image"
+              class="nvybe-meet-glow-product-image"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- BERRY BRIGHT -->
+      <div
+        class="meet-glow-products"
+        id="berry-product"
+        style="flex-direction: row-reverse"
+      >
+        <div class="meet-glow-product-left">
+          <h3 class="meet-glow-title nvybe-primary-heading3">
+            Experience The Product
+          </h3>
+
+          <p class="meet-glow-text">
+            Cosmetics with 100% natural ingredients preprocessing by machine and
+            research by many cosmetics & dermatologists present in korea. by
+            many cosme.
+          </p>
+
+          <button class="nvybe-primary-button">
+            Shop Now<svg
+              width="19"
+              height="18"
+              viewBox="0 0 19 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.67578 6H17.6758L16.8408 15.181C16.7956 15.6779 16.5664 16.14 16.198 16.4766C15.8296 16.8131 15.3487 16.9998 14.8498 17H4.50178C4.00282 16.9998 3.52195 16.8131 3.15358 16.4766C2.78521 16.14 2.55594 15.6779 2.51078 15.181L1.67578 6Z"
+                stroke="#3A2D32"
+                stroke-width="1.5"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M5.67578 8V5C5.67578 3.93913 6.09721 2.92172 6.84735 2.17157C7.5975 1.42143 8.61492 1 9.67578 1C10.7366 1 11.7541 1.42143 12.5042 2.17157C13.2544 2.92172 13.6758 3.93913 13.6758 5V8"
+                stroke="#3A2D32"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="meet-glow-product-right">
+          <div class="product-right-image-container" style="left: 5%">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/berry1_29f88e97-4a90-49d6-aab3-c7ec79581108.png?v=1733772798"
+              alt="Product Image"
+              class="nvybe-meet-glow-product-image"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- UNDER EYE PRODUCT -->
+      <div class="meet-glow-products" id="under-eye-product">
+        <div class="meet-glow-product-left">
+          <h3 class="meet-glow-title nvybe-primary-heading3">
+            Experience The Product
+          </h3>
+
+          <p class="meet-glow-text">
+            Cosmetics with 100% natural ingredients preprocessing by machine and
+            research by many cosmetics & dermatologists present in korea. by
+            many cosme.
+          </p>
+
+          <button class="nvybe-primary-button">
+            Shop Now<svg
+              width="19"
+              height="18"
+              viewBox="0 0 19 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.67578 6H17.6758L16.8408 15.181C16.7956 15.6779 16.5664 16.14 16.198 16.4766C15.8296 16.8131 15.3487 16.9998 14.8498 17H4.50178C4.00282 16.9998 3.52195 16.8131 3.15358 16.4766C2.78521 16.14 2.55594 15.6779 2.51078 15.181L1.67578 6Z"
+                stroke="#3A2D32"
+                stroke-width="1.5"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M5.67578 8V5C5.67578 3.93913 6.09721 2.92172 6.84735 2.17157C7.5975 1.42143 8.61492 1 9.67578 1C10.7366 1 11.7541 1.42143 12.5042 2.17157C13.2544 2.92172 13.6758 3.93913 13.6758 5V8"
+                stroke="#3A2D32"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="meet-glow-product-right">
+          <div class="product-right-image-container">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/eye1.png?v=1733772802"
+              alt="Product Image"
+              class="nvybe-meet-glow-product-image"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEET THE GLOW END -->
+
+    <!-- start WHAT ARE CUSTOMERS ARE SAYING -->
+
+    <section class="nvybe-section-container" aria-label="Category Section">
+      <div class="category-heading">
+        <h1 class="category-title nvybe-primary-heading">
+          <span class="sparkles"
+            ><img
+              src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/star.svg?v=1733773066"
+              alt=""
+              style="margin-bottom: -25px; margin-right: 10px" /></span
+          >What Our Customers Are Saying<span
+            class="sparkles"
+            style="margin-top: 20px"
+            ><img
+              src="https://cdn.shopify.com/s/files/1/0813/4718/2906/files/star.svg?v=1733773066"
+              alt=""
+          /></span>
+        </h1>
+        <p class="category-subtitle">
+          Cosmetics with 100% natural ingredients by machine
+        </p>
+      </div>
+      <div class="category-products" style="gap: 40px">
+        <div class="customer-card">
+          <svg
+            width="187"
+            height="28"
+            viewBox="0 0 187 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14.7671 0L19.7853 8.55594L29.5302 10.6515L22.8868 18.0349L23.8912 27.886L14.7671 23.8932L5.64293 27.886L6.64733 18.0349L0.00390625 10.6515L9.74879 8.55594L14.7671 0Z"
+              fill="#FFCB45"
+            />
+            <path
+              d="M54.1382 0L59.1564 8.55594L68.9013 10.6515L62.2579 18.0349L63.2623 27.886L54.1382 23.8932L45.014 27.886L46.0184 18.0349L39.375 10.6515L49.1199 8.55594L54.1382 0Z"
+              fill="#FFCB45"
+            />
+            <path
+              d="M93.5014 0L98.5197 8.55594L108.265 10.6515L101.621 18.0349L102.626 27.886L93.5014 23.8932L84.3773 27.886L85.3817 18.0349L78.7383 10.6515L88.4832 8.55594L93.5014 0Z"
+              fill="#FFCB45"
+            />
+            <path
+              d="M132.873 0L137.891 8.55594L147.636 10.6515L140.992 18.0349L141.997 27.886L132.873 23.8932L123.748 27.886L124.753 18.0349L118.109 10.6515L127.854 8.55594L132.873 0Z"
+              fill="#FFCB45"
+            />
+            <path
+              d="M172.24 0L177.258 8.55594L187.003 10.6515L180.359 18.0349L181.364 27.886L172.24 23.8932L163.116 27.886L164.12 18.0349L157.477 10.6515L167.221 8.55594L172.24 0Z"
+              fill="#FFCB45"
+            />
+          </svg>
+
+          <div class="customer-review">
+            Experience the power of natural detox solutions designed to enhance
+            your health and vitality effortlessly. Experience the power of
+            natural detox
+          </div>
+          <div class="customer-profile">
+            <div class="profile"></div>
+            <div>
+              <h6 class="customer-name">Esther Howard</h6>
+              <div class="customer-name-sub">Customer</div>
+            </div>
+          </div>
+        </div>
+        <div class="customer-card">
+          <svg
+            width="187"
+            height="28"
+            viewBox="0 0 187 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14.7671 0L19.7853 8.55594L29.5302 10.6515L22.8868 18.0349L23.8912 27.886L14.7671 23.8932L5.64293 27.886L6.64733 18.0349L0.00390625 10.6515L9.74879 8.55594L14.7671 0Z"
+              fill="#FFCB45"
+            />
+            <path
+              d="M54.1382 0L59.1564 8.55594L68.9013 10.6515L62.2579 18.0349L63.2623 27.886L54.1382 23.8932L45.014 27.886L46.0184 18.0349L39.375 10.6515L49.1199 8.55594L54.1382 0Z"
+              fill="#FFCB45"
+            />
+            <path
+              d="M93.5014 0L98.5197 8.55594L108.265 10.6515L101.621 18.0349L102.626 27.886L93.5014 23.8932L84.3773 27.886L85.3817 18.0349L78.7383 10.6515L88.4832 8.55594L93.5014 0Z"
+              fill="#FFCB45"
+            />
+            <path
+              d="M132.873 0L137.891 8.55594L147.636 10.6515L140.992 18.0349L141.997 27.886L132.873 23.8932L123.748 27.886L124.753 18.0349L118.109 10.6515L127.854 8.55594L132.873 0Z"
+              fill="#FFCB45"
+            />
+            <path
+              d="M172.24 0L177.258 8.55594L187.003 10.6515L180.359 18.0349L181.364 27.886L172.24 23.8932L163.116 27.886L164.12 18.0349L157.477 10.6515L167.221 8.55594L172.24 0Z"
+              fill="#FFCB45"
+            />
+          </svg>
+          <div class="customer-review">
+            Experience the power of natural detox solutions designed to enhance
+            your health and vitality effortlessly. Experience the power of
+            natural detox
+          </div>
+          <div>
+            <div class="customer-profile">
+              <div class="profile"></div>
+              <div>
+                <h6 class="customer-name">Esther Howard</h6>
+                <div class="customer-name-sub">Customer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="customer-card">
+          <svg
+            width="187"
+            height="28"
+            viewBox="0 0 187 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14.7671 0L19.7853 8.55594L29.5302 10.6515L22.8868 18.0349L23.8912 27.886L14.7671 23.8932L5.64293 27.886L6.64733 18.0349L0.00390625 10.6515L9.74879 8.55594L14.7671 0Z"
+              fill="#FFCB45"
+            />
+            <path
+              d="M54.1382 0L59.1564 8.55594L68.9013 10.6515L62.2579 18.0349L63.2623 27.886L54.1382 23.8932L45.014 27.886L46.0184 18.0349L39.375 10.6515L49.1199 8.55594L54.1382 0Z"
+              fill="#FFCB45"
+            />
+            <path
+              d="M93.5014 0L98.5197 8.55594L108.265 10.6515L101.621 18.0349L102.626 27.886L93.5014 23.8932L84.3773 27.886L85.3817 18.0349L78.7383 10.6515L88.4832 8.55594L93.5014 0Z"
+              fill="#FFCB45"
+            />
+            <path
+              d="M132.873 0L137.891 8.55594L147.636 10.6515L140.992 18.0349L141.997 27.886L132.873 23.8932L123.748 27.886L124.753 18.0349L118.109 10.6515L127.854 8.55594L132.873 0Z"
+              fill="#FFCB45"
+            />
+            <path
+              d="M172.24 0L177.258 8.55594L187.003 10.6515L180.359 18.0349L181.364 27.886L172.24 23.8932L163.116 27.886L164.12 18.0349L157.477 10.6515L167.221 8.55594L172.24 0Z"
+              fill="#FFCB45"
+            />
+          </svg>
+          <div class="customer-review">
+            Experience the power of natural detox solutions designed to enhance
+            your health and vitality effortlessly. Experience the power of
+            natural detox
+          </div>
+          <div>
+            <div class="customer-profile">
+              <div class="profile"></div>
+              <div>
+                <h6 class="customer-name">Esther Howard</h6>
+                <div class="customer-name-sub">Customer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <br />
+    <br />
+
+    <!-- end WHAT ARE CUSTOMERS ARE SAYING -->
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-logo-column">
+          <img src="./assets/nvybe.png" alt="" />
+        </div>
+        <div class="footer-menu-column">
+          <h3 style="margin-left: 18px">FOLLOW US</h3>
+          <ul>
+            <li>INSTAGRAM</li>
+            <li>YOUTUBE</li>
+            <li>FACEBOOK</li>
+          </ul>
+        </div>
+        <!-- <div class="footer-menu-column">
+          <ul>
+            <li>HOME</li>
+            <li>SHOP</li>
+            <li>BOUNDLES</li>
+            <li>BLOG</li>
+          </ul>
+        </div> -->
+        <div class="footer-menu-column">
+          <ul>
+            <li>Refund Policy</li>
+            <li>Privacy Policy</li>
+            <li>Terms of Service</li>
+            <li>Shipping Policy</li>
+          </ul>
+        </div>
+        <div class="footer-menu-column">
+          <ul>
+            <li>+91 9987961365</li>
+            <li>marketing@nvybe.co</li>
+            <li style="font-size: 20px">
+              G-1, Adinath CHS Ltd, Castle Mill Circle, Thane (w) 400601
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <p
+          style="
+            margin-top: 0px;
+            padding: 20px;
+            text-align: center;
+            color: #eeeae1;
+            background-color: #252320;
+            font-weight: 300;
+          "
+        >
+          &copy; 2021 NVYBE. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+    <!-- footer end -->
+  </body>
+</html>
